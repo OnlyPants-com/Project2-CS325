@@ -40,3 +40,8 @@ python src/getdata.py
 python src/preprocess.py
 ```
 --- This process the data by removing HTML tags, special characters, and turning the whole string into lowercase
+--- 
+Saves the cleaned versions to 
+data/cleaned_jobs.json
+data/cleaned_resume.json
+---
