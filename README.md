@@ -6,7 +6,7 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 ```
 Project1-CS325
 - data
-    - cleaned_jobs.json <code style="color : aquamarine"> Cleaned job postings from Adzuna</code>
+    - cleaned_jobs.json
     - cleaned_resume.json
     - embeddings.json
     - jobs.json
@@ -20,3 +20,5 @@ Project1-CS325
 - README.md
 - requirements.yml
 ```
+- cleaned_jobs.json
+    - <span style="color:lightgreen">Preprocessed and cleaned version of raw data from jobs.json</span>
