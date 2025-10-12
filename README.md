@@ -49,3 +49,8 @@ Saves the cleaned versions to: ```data/cleaned_jobs.json``` and ```data/cleaned_
 python src/embedding.py
 ```
 This process embeds the individual job postings to ```data/embeddings.json``` and the resume embedding to ```resume_embedding.json```.
+### Find the Best-Matching Jobs
+```
+python src/similarity.py
+```
+This process uses cosine similarity to compute the top 10 most suitable jobs based on the resume. The results are output into the terminal.
