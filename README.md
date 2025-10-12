@@ -32,17 +32,20 @@ conda activate "name of environment"
 First, the data must be aquired and then preprocessed. To do this, the ```getdata.py``` and the ```preprocess.py``` scripts are needed.
 
 Run this in the command line (FROM ROOT DIRECTORY, OR ELSE IT WILL HAVE AN ERROR):
+### Get the Data
 ```
 python src/getdata.py
 ```
---- This saves the raw data to jobs.json
+This saves the raw data to: ```data/jobs.json```
+### Preprocess the Data
 ```
 python src/preprocess.py
 ```
---- This process the data by removing HTML tags, special characters, and turning the whole string into lowercase
+This process the data by removing HTML tags, special characters, and turning the whole string into lowercase
  
---- Saves the cleaned versions to 
+Saves the cleaned versions to: ```data/cleaned_jobs.json``` and ```data/cleaned_resume.json```
+### Embed the Data into Vectors
 ```
-data/cleaned_jobs.json
-data/cleaned_resume.json
+python src/embedding.py
 ```
+This process embeds the individual job postings to ```data/embeddings.json``` and the resume embedding to ```resume_embedding.json```.
