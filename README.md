@@ -20,4 +20,6 @@ Project1-CS325
 - README.md
 - requirements.yml
 ```
-<span style="color:lightgreen">Preprocessed and cleaned version of raw data from jobs.json</span>
+<span style="color:red">
+Preprocessed and cleaned version of raw data from jobs.json
+</span>
