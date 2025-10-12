@@ -6,10 +6,10 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 ```
 Project1-CS325
 - data
-    - cleaned_jobs.json
-    - cleaned_resume.json
-    - embeddings.json
-    - jobs.json
+    - cleaned_jobs.json -- Preprocessed data from jobs.json
+    - cleaned_resume.json -- Preprocessed the resume
+    - embeddings.json -- Jobs embedded into individual vectors
+    - jobs.json -- Raw job posting data from Adzuna API
     - resume_embedding.json -- Resume embedded into a single vector
     - resume.txt -- My resume in text form
 - src
