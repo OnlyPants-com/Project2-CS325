@@ -3,7 +3,7 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 
 ## Structure
 
-'''
+```
 Project1-CS325
 - data
     - cleaned_jobs.json
@@ -19,4 +19,4 @@ Project1-CS325
     - similarity.py
 - README.md
 - requirements.yml
-'''
+```
