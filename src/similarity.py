@@ -1,12 +1,10 @@
 import json
-import numpy as np
-from scipy.spatial.distance import cosine
+import numpy as np #type: ignore
+from scipy.spatial.distance import cosine #type: ignore
 
-# --- File paths ---
 EMBEDDINGS_PATH = "data/embeddings.json"
 RESUME_PATH = "data/resume_embedding.json"
 
-# --- Functions ---
 def load_embeddings():
     #Load job embeddings (list of job entries).
     with open(EMBEDDINGS_PATH, "r", encoding="utf-8") as f:

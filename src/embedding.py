@@ -1,11 +1,9 @@
 import os
 import json
-from openai import OpenAI
+from openai import OpenAI # type: ignore
 
 # Initialize OpenAI client
-# "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"
 client = OpenAI(api_key="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")
-# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # File locations
 CLEANED_JOBS_FILE = "data/cleaned_jobs.json"
@@ -35,9 +33,6 @@ def embed_job_postings():
             f"Title: {job.get('title', '')}\n"
             f"Company: {job.get('company', '')}\n"
             f"Location: {job.get('location', '')}\n"
-            #f"Experience: {job.get('experience', '')}\n"
-            #f"Education: {job.get('education', '')}\n"
-            #f"Skills: {job.get('skills', '')}\n"
             f"Description: {job.get('description', '')}"
         )
         embedding = get_embedding(text)

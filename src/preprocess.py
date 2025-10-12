@@ -1,18 +1,15 @@
-# src/preprocess.py
-
 import json
 import re
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-RAW_JOBS_FILE = DATA_DIR / "jobs.json"
-CLEANED_JOBS_FILE = DATA_DIR / "cleaned_jobs.json"
-RESUME_FILE = DATA_DIR / "resume.txt"
-CLEANED_RESUME_FILE = DATA_DIR / "cleaned_resume.json"
+RAW_JOBS_FILE = "data/jobs.json"
+CLEANED_JOBS_FILE = "data/cleaned_jobs.json"
+RESUME_FILE = "data/resume.txt"
+CLEANED_RESUME_FILE = "data/cleaned_resume.json"
 
 
 def clean_text(text: str) -> str:
-    """Remove HTML tags, special characters, extra spaces, lowercase."""
+    #Remove HTML tags, special characters, extra spaces, lowercase.
     if not text:
         return "N/A"
     text = re.sub(r"<.*?>", " ", text)                # remove HTML tags
@@ -22,10 +19,7 @@ def clean_text(text: str) -> str:
 
 
 def preprocess_jobs():
-    """Load raw_jobs.json, clean text, save to cleaned_jobs.json."""
-    if not RAW_JOBS_FILE.exists():
-        raise FileNotFoundError(f"{RAW_JOBS_FILE} not found. Run getdata.py first.")
-
+    #Load jobs.json, clean text, save to cleaned_jobs.json.
     with open(RAW_JOBS_FILE, "r", encoding="utf-8") as f:
         raw_jobs = json.load(f)
 
@@ -45,10 +39,7 @@ def preprocess_jobs():
     print(f"Cleaned jobs saved to {CLEANED_JOBS_FILE}")
 
 def preprocess_resume():
-    """Load resume.txt, extract key sections, clean, save to cleaned_resume.json."""
-    if not RESUME_FILE.exists():
-        raise FileNotFoundError(f"{RESUME_FILE} not found. Please add your resume.txt.")
-
+    #Load resume.txt, extract key sections, clean, save to cleaned_resume.json.
     with open(RESUME_FILE, "r", encoding="latin-1") as f:
         resume_text = f.read()
 

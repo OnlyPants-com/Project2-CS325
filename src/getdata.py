@@ -1,4 +1,4 @@
-import requests
+import requests #type: ignore
 import json
 import os
 
@@ -10,15 +10,13 @@ APP_KEY = "f01e3b3defed7cf622fc7c887a4d2038"
 PARAMS = {
     "app_id": APP_ID,
     "app_key": APP_KEY,
-    "results_per_page": 20,
+    "results_per_page": 50,
     "what": "computer science",   # keyword
     "where": "St. Louis",         # location
     "content-type": "application/json"
 }
 
-# -----------------------
 # Fetch jobs
-# -----------------------
 def fetch_jobs():
     try:
         response = requests.get(API_URL, params=PARAMS)
@@ -42,18 +40,14 @@ def fetch_jobs():
         print(f"Error fetching jobs: {e}")
         return []
 
-# -----------------------
 # Save to file
-# -----------------------
+
 def save_jobs(jobs, filename="../data/jobs.json"):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(jobs, f, indent=2, ensure_ascii=False)
     print(f"Saved {len(jobs)} jobs to {filename}")
 
-# -----------------------
-# Main
-# -----------------------
 if __name__ == "__main__":
     jobs = fetch_jobs()
     if jobs:
