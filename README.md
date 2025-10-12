@@ -6,7 +6,7 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 ```
 Project1-CS325
 - data
-    - cleaned_jobs.json
+    - cleaned_jobs.json @@Raw job posting data@@
     - cleaned_resume.json
     - embeddings.json
     - jobs.json
