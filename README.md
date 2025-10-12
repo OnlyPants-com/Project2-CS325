@@ -10,8 +10,8 @@ Project1-CS325
     - cleaned_resume.json
     - embeddings.json
     - jobs.json
-    - resume_embedding.json
-    - resume.txt
+    - resume_embedding.json -- Resume embedded into a single vector
+    - resume.txt -- My resume in text form
 - src
     - embedding.py
     - getdata.py
@@ -20,6 +20,3 @@ Project1-CS325
 - README.md
 - requirements.yml
 ```
-<span style="color:red">
-Preprocessed and cleaned version of raw data from jobs.json
-</span>
