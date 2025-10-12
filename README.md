@@ -18,5 +18,25 @@ Project1-CS325
     - preprocess.py -- Formats the data to be in a more readable form
     - similarity.py -- Finds the cosine similarity based on resume and jobs
 - README.md
-- requirements.yml
+- requirements.yml -- Conda environment file
 ```
+
+## Setup
+A conda environment was used for this project, therefore, a conda environment must be created to run the project. This environment has all of the required dependencies needed for the project to run (hopefully).
+```
+conda env create -f requirements.yml
+conda activate "name of environment"
+```
+
+## Running the Project
+First, the data must be aquired and then preprocessed. To do this, the ```getdata.py``` and the ```preprocess.py``` scripts are needed.
+
+Run this in the command line (FROM ROOT DIRECTORY, OR ELSE IT WILL HAVE AN ERROR):
+```
+python src/getdata.py
+```
+--- This saves the raw data to jobs.json
+```
+python src/preprocess.py
+```
+--- This process the data by removing HTML tags, special characters, and turning the whole string into lowercase
