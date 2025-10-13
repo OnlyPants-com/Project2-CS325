@@ -33,7 +33,7 @@ First, the data must be aquired and then preprocessed. To do this, the ```getdat
 
 Run this in the command line (FROM ROOT DIRECTORY, OR ELSE IT WILL HAVE AN ERROR):
 
-When running this in the command line, it may appear as ```.\src\getdata.py``` and this is okay. The program will still run.
+When running in the command line, executions may appear as ```.\src\getdata.py```, ```.\src\preprocess.py``` and so on. This is okay, the program will still run.
 ### Get the Data
 ```
 python src/getdata.py
