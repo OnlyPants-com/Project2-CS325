@@ -32,6 +32,8 @@ conda activate "name of environment"
 First, the data must be aquired and then preprocessed. To do this, the ```getdata.py``` and the ```preprocess.py``` scripts are needed.
 
 Run this in the command line (FROM ROOT DIRECTORY, OR ELSE IT WILL HAVE AN ERROR):
+
+When running this in the command line, it may appear as ```.\src\getdata.py``` and this is okay. The program will still run.
 ### Get the Data
 ```
 python src/getdata.py
@@ -48,7 +50,7 @@ Saves the cleaned versions to: ```data/cleaned_jobs.json``` and ```data/cleaned_
 ```
 python src/embedding.py
 ```
-This process embeds the individual job postings to ```data/embeddings.json``` and the resume embedding to ```resume_embedding.json```.
+This process embeds the individual job postings to ```data/embeddings.json``` and the resume embedding to ```resume_embedding.json```
 ### Find the Best-Matching Jobs
 ```
 python src/similarity.py
