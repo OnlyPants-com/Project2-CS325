@@ -1,9 +1,11 @@
 import os
 import json
-from openai import OpenAI # type: ignore
+import sys
 
-# Initialize OpenAI client
-client = OpenAI(api_key="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")
+#Add parent directory to path to import from embedding_service
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from embedding_service import OpenAIEmbeddingService
 
 # File locations
 CLEANED_JOBS_FILE = "data/cleaned_jobs.json"
@@ -11,16 +13,18 @@ CLEANED_RESUME_FILE = "data/cleaned_resume.json"
 JOB_OUTPUT_FILE = "data/embeddings.json"
 RESUME_EMBEDDING_FILE = "data/resume_embedding.json"
 
-# Choose model
-EMBEDDING_MODEL = "text-embedding-3-small"  # or "text-embedding-3-large"
+API_KEY = "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"
+
+embedding_service = OpenAIEmbeddingService(
+    api_key=API_KEY,
+    model="text-embedding-3-small"
+)
 
 def get_embedding(text: str):
     # Generate an embedding for the given text using OpenAI.
-    response = client.embeddings.create(
-        model=EMBEDDING_MODEL,
-        input=text
-    )
-    return response.data[0].embedding
+
+    # MODIFIED TO USE OpenAIEmbeddingService from embedding_service.py
+    return embedding_service.get_embedding(text)
 
 def embed_job_postings():
     with open(CLEANED_JOBS_FILE, "r", encoding="utf-8") as f:
