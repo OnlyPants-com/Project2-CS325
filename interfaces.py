@@ -1,6 +1,4 @@
-"""
-Abstract interfaces for Dependency Inversion Principle (DIP).
-"""
+"""Abstract interfaces for Dependency Inversion Principle (DIP)."""
 from abc import ABC, abstractmethod
 from typing import List
 
