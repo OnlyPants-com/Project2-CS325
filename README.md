@@ -1,6 +1,9 @@
 # Jobmatcher Project for CS325 at SIUE
 This project uses the Adzuna API to aquire the data for processing. This data is then processed to be in a more readable form. The data is then turned into an emebedded vector, which is then used for cosine similarity comparisons using my resume.
 
+**Updates for Project 2:**
+This version has been refactored to follow SOLID principles (Single Responsibility and Dependency Inversion), making it more maintainable, testable, and flexible.
+
 ## Structure
 
 ```
@@ -19,6 +22,33 @@ Project1-CS325
     - similarity.py -- Finds the cosine similarity based on resume and jobs
 - README.md
 - requirements.yml -- Conda environment file
+```
+```
+Project2-CS325/
+├── data/
+│   ├── cleaned_jobs.json           -- Preprocessed data from jobs.json
+│   ├── cleaned_resume.json         -- Preprocessed resume sections
+│   ├── embeddings.json             -- Jobs embedded into individual vectors
+│   ├── jobs.json                   -- Raw job posting data from Adzuna API
+│   ├── resume_embedding.json       -- Resume embedded into a single vector
+│   └── resume.txt                  -- Your resume in text form (YOU MUST ADD THIS)
+├── src/
+│   ├── embedding.py                -- Embeds jobs and resume into vectors (MODIFIED for DIP)
+│   ├── getdata.py                  -- Acquires data from Adzuna API (UPDATED for multiple pages)
+│   ├── preprocess.py               -- Formats data to be in a more readable form
+│   └── similarity.py               -- Finds cosine similarity based on resume and jobs
+├── tests/
+│   └── test_embedding.py           -- Unit tests with mocking (no API calls needed)
+├── diagrams/
+│   ├── UML Class Diagram.png       -- UML class diagram showing architecture
+│   └── UML Sequence Diagram.png    -- UML sequence diagram showing workflow
+├── interfaces.py                   -- Abstract interface for embedding services (NEW - DIP)
+├── embedding_service.py            -- OpenAI embedding service implementation (NEW - DIP)
+├── job_matcher.py                  -- Main orchestrator to run full pipeline (NEW - SRP)
+├── requirements.txt                -- pip dependencies
+├── requirements.yml                -- Conda environment file
+├── README.md                       -- This file
+└── REFACTORING.md                  -- Documentation of SOLID principles applied
 ```
 
 ## Setup
