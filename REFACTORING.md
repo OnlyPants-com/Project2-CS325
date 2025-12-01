@@ -11,7 +11,7 @@ In Project 1, the application consisted of four separate scripts (getdata.py, pr
 I created a JobMatcher class whose single responsibility is to orchestrate the workflow. 
 
 - ```job_matcher.py```
-```
+``` python
 class JobMatcher:
     """
     Single Responsibility: Coordinates the workflow only.
@@ -19,7 +19,7 @@ class JobMatcher:
     """
     
     def run_full_pipeline(self):
-        """Orchestrates the pipeline by calling existing scripts."""
+        """Orchestrates the pipeline by calling existing script"""
         steps = [
             ("Fetching jobs from Adzuna...", "src/getdata.py"),
             ("Preprocessing data...", "src/preprocess.py"),
