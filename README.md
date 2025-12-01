@@ -7,23 +7,6 @@ This version has been refactored to follow SOLID principles (Single Responsibili
 ## Structure
 
 ```
-Project1-CS325
-- data
-    - cleaned_jobs.json -- Preprocessed data from jobs.json
-    - cleaned_resume.json -- Preprocessed the resume
-    - embeddings.json -- Jobs embedded into individual vectors
-    - jobs.json -- Raw job posting data from Adzuna API
-    - resume_embedding.json -- Resume embedded into a single vector
-    - resume.txt -- My resume in text form
-- src
-    - embedding.py -- Embeds the jobs individually into a combined vector
-    - getdata.py -- Aquires data from Adzuna API
-    - preprocess.py -- Formats the data to be in a more readable form
-    - similarity.py -- Finds the cosine similarity based on resume and jobs
-- README.md
-- requirements.yml -- Conda environment file
-```
-```
 Project2-CS325/
 ├── data/
 │   ├── cleaned_jobs.json           -- Preprocessed data from jobs.json
@@ -53,12 +36,29 @@ Project2-CS325/
 
 ## Setup
 A conda environment was used for this project, therefore, a conda environment must be created to run the project. This environment has all of the required dependencies needed for the project to run (hopefully).
+### Prerequisites
+* Python 3.10
+* OpenAI API key
+* Adzuna API credentials
+* Resume in plain .txt file
+
 ```
 conda env create -f requirements.yml
 conda activate "name of environment"
 ```
 
-## Running the Project
+## Running the Project (Option 1: Recommended)
+Run this inside of the terminal:
+```
+python job_matcher.py
+```
+This does all of the steps in sequence.
+1. Fetch data
+2. Preprocess the data
+3. Generate embeddings
+4. Calculate similarities
+
+## Running the Project (Option 2)
 First, the data must be aquired and then preprocessed. To do this, the ```getdata.py``` and the ```preprocess.py``` scripts are needed.
 
 Run this in the command line (FROM ROOT DIRECTORY, OR ELSE IT WILL HAVE AN ERROR):
