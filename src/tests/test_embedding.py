@@ -1,6 +1,3 @@
-"""
-Unit tests demonstrating mocking of the embedding service.
-"""
 import unittest
 import sys
 import os
