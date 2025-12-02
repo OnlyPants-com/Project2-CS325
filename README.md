@@ -4,6 +4,19 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 **Updates for Project 2:**
 This version has been refactored to follow SOLID principles (Single Responsibility and Dependency Inversion), making it more maintainable, testable, and flexible.
 
+## How to run Docker image (Bonus)
+This application is containerized using Docker, allowing you to run it without installing Python or dependencies locally.
+
+Build the image using the Dockerfile
+
+```
+docker build -t onlypantscom/job-matcher:latest
+```
+Running it
+```
+docker run -e OPENAI_API_KEY=your_key -e ADZUNA_APP_ID=your_id -e ADZUNA_APP_KEY=your_key onlypantscom/job-matcher:latest
+```
+
 ## Structure
 
 ```
