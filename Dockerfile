@@ -13,4 +13,4 @@ COPY src/ /home/src/
 
 COPY data/ /home/data/
 
-CMD ["python", "job_matcher.py"]
+CMD ["pytest"]
