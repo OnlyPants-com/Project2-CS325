@@ -4,6 +4,12 @@ This project uses the Adzuna API to aquire the data for processing. This data is
 **Updates for Project 2:**
 This version has been refactored to follow SOLID principles (Single Responsibility and Dependency Inversion), making it more maintainable, testable, and flexible.
 
+### Prerequisites
+* Python 3.10
+* OpenAI API key
+* Adzuna API credentials
+* Resume in plain .txt file
+
 ## How to run Docker image (Bonus)
 This application is containerized using Docker, allowing you to run it without installing Python or dependencies locally.
 
@@ -12,9 +18,23 @@ Build the image using the Dockerfile
 ```
 docker build -t onlypantscom/job-matcher:latest
 ```
+### Before Running (IMPORTANT)
+The project relies on OpenAI and Adzuna API keys, so a new file is needed.
+1. Before running, create a ```.env``` file inside the root directory
+2. An API key for both Adzuna and OpenAI is needed. To get the Adzuna key, go to https://developer.adzuna.com/.
+3. To get the OpenAI key, go to https://platform.openai.com/api-keys. Create an account and create a secret key.
+4. Add these sections to it ```OPENAI_API_KEY=sk-proj-your-key-here```,
+```ADZUNA_APP_ID=your-id-here```, and 
+```ADZUNA_APP_KEY=your-key-here```
+- Sidenote: this project relies on Adzuna, but it is very easy to replace it with another API.
 Running it
 ```
-docker run -e OPENAI_API_KEY=your_key -e ADZUNA_APP_ID=your_id -e ADZUNA_APP_KEY=your_key onlypantscom/job-matcher:latest
+docker run --env-file .env onlypantscom/job-matcher:latest
+```
+
+To run tests:
+```
+docker run --env-file .env onlypantscom/job-matcher:latest pytest
 ```
 
 ## Structure
@@ -38,9 +58,14 @@ Project2-CS325/
 ├── diagrams/
 │   ├── UML Class Diagram.png       -- UML class diagram showing architecture
 │   └── UML Sequence Diagram.png    -- UML sequence diagram showing workflow
+├── .github/
+│   └── workflows/
+│       └── dockerCI.yml           -- CI/CD pipeline configuration
 ├── interfaces.py                   -- Abstract interface for embedding services (NEW - DIP)
 ├── embedding_service.py            -- OpenAI embedding service implementation (NEW - DIP)
 ├── job_matcher.py                  -- Main orchestrator to run full pipeline (NEW - SRP)
+├── Dockerfile                      -- Docker container configuration
+├── .env                            -- Environment variables (NOT committed to git)
 ├── requirements.txt                -- pip dependencies
 ├── requirements.yml                -- Conda environment file
 ├── README.md                       -- This file
@@ -49,11 +74,6 @@ Project2-CS325/
 
 ## Setup
 A conda environment was used for this project, therefore, a conda environment must be created to run the project. This environment has all of the required dependencies needed for the project to run (hopefully).
-### Prerequisites
-* Python 3.10
-* OpenAI API key
-* Adzuna API credentials
-* Resume in plain .txt file
 
 ```
 conda env create -f requirements.yml
