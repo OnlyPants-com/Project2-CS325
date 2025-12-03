@@ -13,7 +13,7 @@ CLEANED_RESUME_FILE = "data/cleaned_resume.json"
 JOB_OUTPUT_FILE = "data/embeddings.json"
 RESUME_EMBEDDING_FILE = "data/resume_embedding.json"
 
-API_KEY = "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"
+API_KEY = os.getenv("OPENAI_API_KEY")
 
 embedding_service = OpenAIEmbeddingService(
     api_key=API_KEY,

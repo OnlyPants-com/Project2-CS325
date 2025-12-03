@@ -2,6 +2,9 @@ import requests #type: ignore
 import json
 import os
 import time
+from dotenv import load_dotenv #type: ignore
+
+load_dotenv()
 
 SEARCH_KEYWORD = "computer science"
 SEARCH_LOCATION = "St. Louis"
@@ -10,8 +13,8 @@ RESULTS_PER_PAGE = 50
 
 
 # Adzuna API credentials
-APP_ID = "0b620397"
-APP_KEY = "f01e3b3defed7cf622fc7c887a4d2038"
+APP_ID = os.getenv("ADZUNA_APP_ID") # "0b620397"
+APP_KEY = os.getenv("ADZUNA_APP_KEY") # "f01e3b3defed7cf622fc7c887a4d2038"
 
 def fetch_jobs_from_page(page_number):
     # Adzuna API URL with page number
