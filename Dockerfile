@@ -13,4 +13,7 @@ COPY src/ /home/src/
 
 COPY data/ /home/data/
 
-CMD ["pytest"]
+RUN mkdir -p /home/src/tests/
+COPY src/tests/test_embedding.py /home/src/tests/
+
+CMD ["python", "job_matcher.py"]
