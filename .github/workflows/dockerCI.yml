@@ -1,25 +1,21 @@
-name: CI Tests for Job Matcher
+name: Python CI
 
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  test:
+  test-in-container:
     runs-on: ubuntu-latest
+    container:
+      image: onlypantscom/job-matcher:latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v4
 
-      - name: Pull Docker image (bonus requirement)
-        run: docker pull onlypantscom/job-matcher:latest
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run unit tests
-        run: pytest
+      - name: Run tests in container
+        run: pytest /home/test_embedding.py
