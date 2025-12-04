@@ -13,10 +13,9 @@ This version has been refactored to follow SOLID principles (Single Responsibili
 ## How to run Docker image (Bonus)
 This application is containerized using Docker, allowing you to run it without installing Python or dependencies locally.
 
-Build the image using the Dockerfile
-
+Clone the repository from GitHub:
 ```
-docker build -t onlypantscom/job-matcher:latest
+git clone https://github.com/OnlyPants-com/Project2-CS325.git
 ```
 ### Before Running (IMPORTANT)
 The project relies on OpenAI and Adzuna API keys, so a new file is needed.
@@ -27,9 +26,15 @@ The project relies on OpenAI and Adzuna API keys, so a new file is needed.
 ```ADZUNA_APP_ID=your-id-here```, and 
 ```ADZUNA_APP_KEY=your-key-here```
 - Sidenote: this project relies on Adzuna, but it is very easy to replace it with another API.
+
+Build the image using the Dockerfile
+
+```
+docker build -t onlypantscom/job-matcher:latest
+```
 Running it
 ```
-docker run --env-file .env onlypantscom/job-matcher:latest
+docker run --env-file .env onlypantscom/job-matcher:latest .
 ```
 
 To run tests:
