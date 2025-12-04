@@ -78,7 +78,7 @@ Project2-CS325/
 ```
 
 ## Setup
-A conda environment was used for this project, therefore, a conda environment must be created to run the project. This environment has all of the required dependencies needed for the project to run (hopefully).
+A conda environment was used for this project, therefore, a conda environment is optional for testing. A better option is to use the Docker container
 
 ```
 conda env create -f requirements.yml
